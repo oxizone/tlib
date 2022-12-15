@@ -13,7 +13,7 @@ public class GeneralControler {
 
     public static final String CREATE_ACCOUNT_VIEW_NAME = "create_account";
 
-    @RequestMapping("/signup")
+    @GetMapping("/signup")
     public String signup(Model model){
 
         model.addAttribute("user",new User());

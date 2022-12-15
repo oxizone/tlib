@@ -21,7 +21,7 @@ public class User {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    private int id;
+    private long id;
 
     @Column(length = 20,unique = true)
     @NotBlank(message = "This field is required")

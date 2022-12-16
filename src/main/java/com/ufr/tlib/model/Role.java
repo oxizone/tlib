@@ -11,4 +11,6 @@ public class Role {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
+
+    private String name;
 }

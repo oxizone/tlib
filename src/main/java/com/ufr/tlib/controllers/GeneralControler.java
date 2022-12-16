@@ -1,12 +1,9 @@
-package com.ufr.tlib.controlers;
+package com.ufr.tlib.controllers;
 
-import com.ufr.tlib.model.User;
+import com.ufr.tlib.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.sql.SQLOutput;
 
 @Controller
 public class GeneralControler {

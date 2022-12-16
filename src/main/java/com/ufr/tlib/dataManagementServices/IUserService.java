@@ -1,7 +1,7 @@
 package com.ufr.tlib.dataManagementServices;
 
-import com.ufr.tlib.excepetion.UserNotFoundException;
-import com.ufr.tlib.model.User;
+import com.ufr.tlib.excepetions.UserNotFoundException;
+import com.ufr.tlib.models.User;
 import org.springframework.dao.DataIntegrityViolationException;
 
 public interface IUserService {

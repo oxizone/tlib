@@ -1,4 +1,4 @@
-package com.ufr.tlib.controlers;
+package com.ufr.tlib.controllers;
 
 
 import com.ufr.tlib.dataManagementServices.IUserService;

@@ -1,16 +1,15 @@
-package com.ufr.tlib.model;
+package com.ufr.tlib.models;
 
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -51,6 +50,14 @@ public class User {
     @NotBlank(message = "This field is required")
     private String phone;
 
+    @OneToMany(mappedBy = "manager")
+    private List<Local> managedLocals;
+
+    @OneToMany(mappedBy = "client")
+    private List<RDV> RDVs;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    List<Role> roles = new ArrayList<>();
 
 }
 

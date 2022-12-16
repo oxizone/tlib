@@ -1,10 +1,9 @@
 package com.ufr.tlib.dataManagementServices;
 
-import com.ufr.tlib.excepetion.UserNotFoundException;
-import com.ufr.tlib.model.User;
+import com.ufr.tlib.excepetions.UserNotFoundException;
+import com.ufr.tlib.models.User;
 import com.ufr.tlib.repositories.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 

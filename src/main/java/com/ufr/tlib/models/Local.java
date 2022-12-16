@@ -1,12 +1,10 @@
-package com.ufr.tlib.model;
+package com.ufr.tlib.models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +25,10 @@ public class Local {
     private String phoneNumber;
     private String email;
     private boolean enabled;
+
+    @OneToMany(mappedBy = "local")
+    private List<Artisan> artisans;
+
+    @ManyToOne
+    private User manager;
 }

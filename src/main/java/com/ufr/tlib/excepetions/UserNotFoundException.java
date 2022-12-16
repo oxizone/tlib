@@ -1,4 +1,4 @@
-package com.ufr.tlib.excepetion;
+package com.ufr.tlib.excepetions;
 
 
 public class UserNotFoundException extends Exception{

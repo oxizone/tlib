@@ -1,4 +1,4 @@
-package com.ufr.tlib.model;
+package com.ufr.tlib.models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -7,21 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 @Builder
 @Entity
-public class Artisan {
+public class Role {
 
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
 
-    private String firstName;
-    private String lastName;
-    private String avatar;
+    private String name;
+
 
 }

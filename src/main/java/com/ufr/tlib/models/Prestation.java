@@ -1,11 +1,11 @@
-package com.ufr.tlib.model;
+package com.ufr.tlib.models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,4 +25,9 @@ public class Prestation {
     private int duration;
     private double price;
 
+    @ManyToOne
+    private Artisan artisan;
+
+    @ManyToMany(mappedBy = "prestations", fetch = FetchType.LAZY)
+    private List<RDV> teachers = new ArrayList<>();
 }

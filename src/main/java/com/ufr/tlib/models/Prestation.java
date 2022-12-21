@@ -28,6 +28,6 @@ public class Prestation {
     @ManyToOne
     private Artisan artisan;
 
-    @ManyToMany(mappedBy = "prestations", fetch = FetchType.LAZY)
-    private List<RDV> teachers = new ArrayList<>();
+    @ManyToOne
+    private PrestationCollection prestationCollection;
 }

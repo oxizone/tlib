@@ -56,8 +56,8 @@ public class User {
     @OneToMany(mappedBy = "client")
     private List<RDV> RDVs;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    List<Role> roles = new ArrayList<>();
+    @ManyToOne
+    private Role role;
 
 }
 

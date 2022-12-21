@@ -29,12 +29,10 @@ public class RDV {
     private User client;
 
 
-    @ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
-    @JoinTable(name = "rdv_prestations", joinColumns = {
-            @JoinColumn(name = "rdv_id", referencedColumnName = "id", nullable = false)
-    }, inverseJoinColumns = {
-            @JoinColumn(name = "prestation_id", referencedColumnName = "id", nullable = false)
-    })
-    private List<Prestation> prestations = new ArrayList<>();
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name="prestations")
+    private PrestationCollection prestationCollection;
+
+
 
 }

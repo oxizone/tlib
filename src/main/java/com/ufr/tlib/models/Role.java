@@ -19,7 +19,7 @@ public class Role {
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
 
-    private String name;
+    private String roleName;
 
     @OneToMany(mappedBy = "role")
     private List<User> users;

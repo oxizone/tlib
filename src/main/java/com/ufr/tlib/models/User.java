@@ -50,6 +50,8 @@ public class User {
     @NotBlank(message = "This field is required")
     private String phone;
 
+    private boolean enabled;
+
     @OneToMany(mappedBy = "manager")
     private List<Local> managedLocals;
 

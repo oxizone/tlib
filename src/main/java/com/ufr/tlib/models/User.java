@@ -2,6 +2,7 @@ package com.ufr.tlib.models;
 
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -50,7 +51,7 @@ public class User {
     @NotBlank(message = "This field is required")
     private String phone;
 
-    private boolean enabled;
+    private boolean enabled = false;
 
     @OneToMany(mappedBy = "manager")
     private List<Local> managedLocals;

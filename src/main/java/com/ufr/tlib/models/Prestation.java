@@ -28,6 +28,7 @@ public class Prestation {
     @ManyToOne
     private Artisan artisan;
 
-    @ManyToOne
-    private PrestationCollection prestationCollection;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<RDV> rdvs;
+
 }

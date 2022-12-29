@@ -40,4 +40,9 @@ public class UserService implements IUserService {
     public User getUserById(long userId) throws UserNotFoundException {
         return userDao.findById(userId).orElseThrow(UserNotFoundException::new);
     }
+
+    @Override
+    public User getUserByUserName(String username) throws UserNotFoundException {
+        return userDao.getUserByUsername(username);
+    }
 }

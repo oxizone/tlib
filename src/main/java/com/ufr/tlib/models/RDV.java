@@ -28,10 +28,8 @@ public class RDV {
     @ManyToOne
     private User client;
 
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name="prestations")
-    private PrestationCollection prestationCollection;
+    @ManyToOne
+    private Prestation prestation;
 
 
 

@@ -43,7 +43,6 @@ public class ManagerController {
             model.addAttribute("services", Service.values());
             return root +"create_local";
         }
-
         localService.addLocal(local, principal.getName());
         return "redirect:creation?success";
     }

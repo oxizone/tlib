@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
   <span th:replace="layouts/head :: head"></span>
-  <title>Creer un lcoal</title>
+  <title>Creer un local</title>
 </head>
 <body>
   <div data-th-if="${param.success!= null}" class="alert  alert-success fade show alert-dismissible" role="alert" data-mdb-color="success" id="customxD" bis_skin_checked="1">
@@ -14,27 +14,37 @@
     <form th:action="@{/manager/addLocal}" method="post" th:object="${local}">
       <div class="mb-3">
         <label for="nom" class="form-label">Nom</label>
-        <input type="texy" class="form-control" id="nom"  name="name" placeholder=>
+        <input type="text" class="form-control" id="nom" th:field="*{name}" placeholder="">
+        <div class="erreur" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name
+          Error</div>
       </div>
 
       <div class="mb-3">
         <label for="Adresse" class="form-label">Adresse</label>
-        <input type="text" class="form-control" id="Adresse" name="address" placeholder="">
+        <input type="text" class="form-control" id="Adresse" th:field="*{address}" placeholder="">
+        <div class="erreur" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">address
+          Error</div>
       </div>
 
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        <textarea class="form-control" id="description" th:field="*{description}" rows="3"></textarea>
+        <div class="erreur" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">description
+          Error</div>
       </div>
 
       <div class="mb-3">
         <label for="phoneNumber" class="form-label">Numero de telephone</label>
-        <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="">
+        <input type="number" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" placeholder="">
+        <div class="erreur" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber
+          Error</div>
       </div>
 
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" name="email" th:field="*{email}"placeholder="name@example.com">
+        <div class="erreur" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email
+          Error</div>
       </div>
 
       <div class="input-group mb-3">

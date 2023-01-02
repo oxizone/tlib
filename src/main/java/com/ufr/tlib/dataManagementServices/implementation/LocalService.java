@@ -7,6 +7,8 @@ import com.ufr.tlib.models.Local;
 import com.ufr.tlib.models.User;
 import com.ufr.tlib.repository.ILocalDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,8 +36,28 @@ public class LocalService implements ILocalService {
     }
 
     @Override
+    public Page<Local> getAllLocalPage(int page,int size) {
+        return localDao.findAll(PageRequest.of(page,size));
+    }
+
+    @Override
+    public Page<Local> getLocalPageByKeyword(String keyword, int page, int size) {
+        return localDao.findLocalByNameContains(keyword,PageRequest.of(page,size));
+    }
+
+    @Override
+    public Page<Local> getLocalPageByKeywordAndServiceType(String keyword, com.ufr.tlib.models.Service service, int page, int size) {
+        return localDao.findLocalByNameContainsAndService(keyword,service,PageRequest.of(page,size));
+    }
+
+    @Override
     public List<Local> getListLocalByManager(String username) throws UserNotFoundException {
         User manager = userService.getUserByUserName(username);
         return localDao.getLocalByManager(manager);
+    }
+
+    @Override
+    public Local getLocal(long id) {
+        return localDao.findById(id).orElseThrow(RuntimeException::new);
     }
 }

@@ -1,5 +1,6 @@
 package com.ufr.tlib.controllers;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.ufr.tlib.dataManagementServices.ILocalService;
 import com.ufr.tlib.dataManagementServices.IUserService;
 import com.ufr.tlib.excepetions.UserNotFoundException;
@@ -10,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -53,4 +51,32 @@ public class ManagerController {
         model.addAttribute("locals",localService.getListLocalByManager(principal.getName()));
         return root + "liste_local";
     }
+
+     @GetMapping("/local/edit/{id}")
+    public String editForm(@PathVariable("id") long id, Principal principal, Model model){
+         Local local= null;
+        try{
+            local = localService.getLocalById(id);
+        }catch(Exception ex){
+            return "error/400";
+        }
+        if(!principal.getName().equals(local.getManager().getUsername()))
+                return "error/403";
+
+        model.addAttribute("local",local);
+        model.addAttribute("services", Service.values());
+        return root + "update_local";
+     }
+
+     @PostMapping("/local/update")
+    public String updateLocal(@ModelAttribute("local") @Valid Local local, BindingResult result,Model model){
+         if (result.hasErrors()) {
+             model.addAttribute("services", Service.values());
+             return root +"update_local";
+         }
+         localService.updateLocal(local);
+
+         return "redirect:/manager/liste/local?updateSuccess";
+     }
 }
+

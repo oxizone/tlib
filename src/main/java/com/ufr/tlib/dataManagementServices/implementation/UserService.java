@@ -45,4 +45,10 @@ public class UserService implements IUserService {
     public User getUserByUserName(String username) throws UserNotFoundException {
         return userDao.getUserByUsername(username);
     }
+
+    @Override
+    public boolean isUsernameExists(User user) {
+            return userDao.getUserByUsername(user.getUsername()) != null;
+        }
+
 }

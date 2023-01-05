@@ -23,7 +23,6 @@ public class GeneralControler {
     public String signup(Model model){
 
         model.addAttribute("user",new User());
-        System.out.println("okokok");
         return "create_account";
     }
 

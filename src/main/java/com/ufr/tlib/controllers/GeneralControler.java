@@ -16,16 +16,14 @@ import javax.validation.Valid;
 public class GeneralControler {
 
     public static final String CREATE_ACCOUNT_VIEW_NAME = "create_account";
-
     @Autowired
     private IUserService userService;
-
 
     @GetMapping("/signup")
     public String signup(Model model){
 
         model.addAttribute("user",new User());
-        return CREATE_ACCOUNT_VIEW_NAME;
+        return "create_account";
     }
 
     @PostMapping(value = "/createUser")
@@ -33,20 +31,20 @@ public class GeneralControler {
         if (result.hasErrors()) {
             return CREATE_ACCOUNT_VIEW_NAME;
         }
-  /*      boolean usernameExiste = userService.isUsernameExists(user);
-        System.out.println(usernameExiste);
+        boolean usernameExiste = userService.isUsernameExists(user);
         if (usernameExiste) {
             result.rejectValue("username","error.user","Username already exists");
-            System.out.println("iciiiii");
             return CREATE_ACCOUNT_VIEW_NAME;
         }
-        userService.addUser(user);*/
-        return "redirect:./";
+        userService.addUser(user);
+        return "redirect:/";
     }
 
+    @GetMapping("/login")
+    public String login(){
 
-
-
+        return "login";
+    }
 
 
 

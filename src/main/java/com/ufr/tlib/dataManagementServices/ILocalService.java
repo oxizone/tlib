@@ -19,11 +19,5 @@ public interface ILocalService {
     public Page<Local> getLocalPageByKeyword(String keyword,int page,int size);
     public Page<Local> getLocalPageByKeywordAndServiceType(String keyword, Service service, int page, int size);
     public List<Local> getListLocalByManager(String username) throws UserNotFoundException;
-
-    public void updateLocal(Local local);
-
-
-
-
     public Local getLocal(long id);
 }

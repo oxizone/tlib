@@ -24,11 +24,6 @@ public class LocalService implements ILocalService {
     private IUserService userService;
 
     @Override
-    public Local getLocalById(long id) throws LocalNotFoundException {
-        return localDao.findById(id).orElseThrow(LocalNotFoundException::new);
-    }
-
-    @Override
     public void addLocal(Local local, String username) throws UserNotFoundException {
         User manager = userService.getUserByUserName(username);
         local.setManager(manager);
@@ -60,11 +55,6 @@ public class LocalService implements ILocalService {
     public List<Local> getListLocalByManager(String username) throws UserNotFoundException {
         User manager = userService.getUserByUserName(username);
         return localDao.getLocalByManager(manager);
-    }
-
-    @Override
-    public void updateLocal(Local local) {
-        localDao.save(local);
     }
 
     @Override

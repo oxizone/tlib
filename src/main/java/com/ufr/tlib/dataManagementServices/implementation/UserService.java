@@ -48,7 +48,6 @@ public class UserService implements IUserService {
 
     @Override
     public boolean isUsernameExists(User user) {
-            return userDao.getUserByUsername(user.getUsername()) != null;
-        }
-
+        return userDao.getUserByUsername(user.getUsername()) != null;
+    }
 }

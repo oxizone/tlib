@@ -12,44 +12,58 @@
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
+                    <label class="form-label" for="form3Example1">Prénom</label>
                     <input th:field="*{firstname}" type="text" id="form3Example1" class="form-control" />
                     <div class="erreur" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">prenom
                         Error</div>
-                    <label class="form-label" for="form3Example1">Prénom</label>
+
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
+                    <label class="form-label" for="form3Example2">Nom</label>
                     <input th:field="*{lastname}" type="text" id="form3Example2" class="form-control" />
                     <div class="erreur" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">nom
                         Error</div>
-                    <label class="form-label" for="form3Example2">Nom</label>
+
                 </div>
             </div>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Email address</label>
             <input th:field="*{email}" type="email" id="form3Example3" class="form-control" />
             <div class="erreur" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email
                 Error</div>
-            <label class="form-label" for="form3Example3">Email address</label>
+
         </div>
 
         <!-- Username input -->
         <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example4">Identifiant</label>
             <input th:field="*{username}" type="text" id="form3Example4" class="form-control" />
             <div class="erreur" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username
                 Error</div>
-            <label class="form-label" for="form3Example4">Identifiant</label>
+
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example5">Mot de passe</label>
             <input th:field="*{password}" type="password" id="form3Example5" class="form-control" />
             <div class="erreur" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password
                 Error</div>
-            <label class="form-label" for="form3Example5">Mot de passe</label>
+
+        </div>
+
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example4">Numéro de téléphone</label>
+            <input th:field="*{phone}" type="tel" id="form3Example6" class="form-control" />
+            <div class="erreur" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Numéro de téléphone
+                Error</div>
+
         </div>
 
         <!-- Submit button -->

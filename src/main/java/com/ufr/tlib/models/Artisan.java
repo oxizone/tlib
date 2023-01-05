@@ -23,9 +23,6 @@ public class Artisan {
     private String lastName;
     private String avatar;
 
-    @OneToMany(mappedBy = "artisan")
-    private List<Prestation> prestations;
-
     @ManyToOne
     private Local local;
 

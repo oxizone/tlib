@@ -67,6 +67,23 @@ public class ManagerController {
         return root + "update_local";
      }
 
+    @GetMapping("/local/{id}")
+    public String localDetails(@PathVariable("id") long id, Principal principal, Model model){
+        Local local= null;
+        try{
+            local = localService.getLocalById(id);
+        }catch(Exception ex){
+            return "error/400";
+        }
+        System.out.println(local.getManager().getUsername());
+        if(!principal.getName().equals(local.getManager().getUsername()))
+            return "error/403";
+
+        model.addAttribute("local",local);
+        model.addAttribute("services", Service.values());
+        return root + "details_local";
+    }
+
      @PostMapping("/local/update")
     public String updateLocal(@ModelAttribute("local") @Valid Local local, BindingResult result,Model model){
          if (result.hasErrors()) {

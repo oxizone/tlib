@@ -50,6 +50,8 @@ public class Local {
     @OneToMany(mappedBy = "local", fetch = FetchType.LAZY)
     private List<Artisan> artisans;
 
+    @OneToMany(mappedBy = "local")
+    private List<Prestation> prestations;
     @ManyToOne
     private User manager;
 

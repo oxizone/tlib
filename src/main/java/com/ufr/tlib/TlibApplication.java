@@ -35,8 +35,8 @@ public class TlibApplication implements CommandLineRunner {
 				.firstname("amine")
 				.lastname("RABHI")
 				.email("amine@gmail.com")
-				.username("marabhi")
-				.password("test")
+				.username("manager")
+				.password("pass")
 				.phone("0665653263")
 				.enabled(true)
 				.role(managerRole)
@@ -74,36 +74,6 @@ public class TlibApplication implements CommandLineRunner {
 				.name("L'atelier de coiffure")
 				.build();
 
-		Local sallonCoiffure3 = Local.builder()
-				.enabled(true)
-				.address("19 rue la republique, besançcon")
-				.email("sallon@gmail.com")
-				.phoneNumber("067263723")
-				.description("Sallon de coiffure")
-				.service(Service.SALON_COIFFURE)
-				.name("L'atelier de coiffure")
-				.build();
-
-		Local sallonCoiffure4 = Local.builder()
-				.enabled(true)
-				.address("19 rue la republique, besançcon")
-				.email("sallon@gmail.com")
-				.phoneNumber("067263723")
-				.description("Sallon de coiffure")
-				.service(Service.SALON_COIFFURE)
-				.name("L'atelier de coiffure")
-				.build();
-
-		Local sallonCoiffure5 = Local.builder()
-				.enabled(true)
-				.address("19 rue la republique, besançcon")
-				.email("sallon@gmail.com")
-				.phoneNumber("067263723")
-				.description("Sallon de coiffure")
-				.service(Service.SALON_COIFFURE)
-				.name("L'atelier de coiffure")
-				.build();
-
 
 		roleRepository.save(managerRole);
 		roleRepository.save(userRole);
@@ -111,11 +81,7 @@ public class TlibApplication implements CommandLineRunner {
 		userService.addUser(user);
 
 
-		localService.addLocal(sallonCoiffure,"marabhi");
-		localService.addLocal(sallonCoiffure2,"marabhi");
-		localService.addLocal(sallonCoiffure3,"marabhi");
-		localService.addLocal(sallonCoiffure4,"marabhi");
-		localService.addLocal(sallonCoiffure5,"marabhi");
-
+		localService.addLocal(sallonCoiffure,manager.getUsername());
+		localService.addLocal(sallonCoiffure2,manager.getUsername());
 	}
 }

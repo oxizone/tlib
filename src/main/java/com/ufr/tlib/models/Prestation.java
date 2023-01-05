@@ -26,7 +26,7 @@ public class Prestation {
     private double price;
 
     @ManyToOne
-    private Artisan artisan;
+    private Local local;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<RDV> rdvs;

@@ -52,6 +52,14 @@
             <label class="form-label" for="form3Example5">Mot de passe</label>
         </div>
 
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+            <input th:field="*{phone}" type="tel" id="form3Example6" class="form-control" />
+            <div class="erreur" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">phone number
+                Error</div>
+            <label class="form-label" for="form3Example4">Phone number</label>
+        </div>
+
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Incription</button>
 

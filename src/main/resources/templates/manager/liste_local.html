@@ -6,6 +6,19 @@
     <title>Liste des locaux</title>
 </head>
 <body>
+    <div data-th-if="${param.updateSuccess!= null}" class="alert  alert-success fade show alert-dismissible" role="alert" data-mdb-color="success" id="customxD" bis_skin_checked="1">
+        <strong>Le local est modifié </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div data-th-if="${param.deleteSuccess!= null}" class="alert  alert-success fade show alert-dismissible" role="alert" data-mdb-color="success" id="customxD2" bis_skin_checked="1">
+        <strong>Le local est supprimé </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div data-th-if="${param.error!= null}" class="alert  alert-success fade show alert-dismissible" role="alert" data-mdb-color="success" id="customxD3" bis_skin_checked="1">
+        <strong>Erreur </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <div class="container">
 
       <h1 class="pt-5">Tous mes locaux</h1>
@@ -37,5 +50,6 @@
         </tbody>
       </table>
     </div>
+    <span th:replace="layouts/foot :: foot"></span>
 </body>
 </html>

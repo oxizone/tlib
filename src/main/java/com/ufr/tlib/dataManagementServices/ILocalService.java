@@ -20,4 +20,7 @@ public interface ILocalService {
     public Page<Local> getLocalPageByKeywordAndServiceType(String keyword, Service service, int page, int size);
     public List<Local> getListLocalByManager(String username) throws UserNotFoundException;
     public Local getLocal(long id);
+
+    public void updateLocal(Local local);
+
 }
